@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
 
 const mongoose = require("mongoose");
 const initData = require("./data.js");
@@ -19,7 +19,7 @@ const initDB = async () => {
     // NOTE: Replace the owner ID below with your actual user _id from MongoDB Atlas
     initData.data = initData.data.map((obj) => ({
         ...obj,
-        owner: "6aa113e67c1b1d307ac1bf7c",
+        owner: "6ad1f1f2babd7f9d5fd4d5db",
     }));
     await Listing.insertMany(initData.data);
     console.log("✅ Data initialized successfully with categories!");
