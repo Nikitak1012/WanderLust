@@ -79,9 +79,10 @@ const sessionOptions = {
 
 
 
-// app.get("/",(req,res)=>{
-//     res.send("root is working");
-// });
+// root route - redirect to listings (home page)
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 // flash a message 
 app.use(session(sessionOptions));
