@@ -2,8 +2,13 @@ const Listing = require("../models/listing.js");
 
 
 module.exports.index = async (req, res)=>{
-    const allListings = await Listing.find({});
-       res.render("listings/index.ejs", {allListings});
+    const { filter } = req.query;
+    let query = {};
+    if(filter){
+        query.category = filter;
+    }
+    const allListings = await Listing.find(query);
+    res.render("listings/index.ejs", {allListings, filter: filter || null});
 
 };
 

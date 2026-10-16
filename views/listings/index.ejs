@@ -8,6 +8,8 @@
             margin-right: 2rem;
             margin-top: 2rem;
             opacity:0.7;
+            text-decoration: none;
+            color: inherit;
         }
         .filter:hover{
             opacity: 1;
@@ -15,6 +17,12 @@
         }
         .filter p{
             font-size: 0.8rem;
+            margin-bottom: 0;
+        }
+        .filter.active{
+            opacity: 1;
+            border-bottom: 2px solid black;
+            padding-bottom: 4px;
         }
         #filters{
             display: flex;
@@ -29,114 +37,131 @@
             border-radius: 1rem;
             height: 3.25rem;
             padding: 1rem;
-            margin-left: 3rem;
+            margin-left: auto;
             display: flex;
             align-items: center;
-
-
+        }
+        .no-listings{
+            text-align: center;
+            padding: 4rem 0;
+            color: #888;
+        }
+        .no-listings i{
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
     </style>
     <!-- filter -->
     <div id="filters">
+        <!-- All -->
+        <a href="/listings" class="filter <%= !filter ? 'active' : '' %>">
+           <div><i class="fa-solid fa-grip"></i></div>
+           <p>All</p>
+        </a>
         <!-- trending -->
-        <div class="filter">
-           <div><i class="fa-solid fa-fire"></i></div> 
-           <p>Trending</p> 
-        </div>
+        <a href="/listings?filter=Trending" class="filter <%= filter === 'Trending' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-fire"></i></div>
+           <p>Trending</p>
+        </a>
         <!-- Room -->
-        <div class="filter">
-           <div><i class="fa-solid fa-bed"></i></div> 
-           <p>Rooms</p> 
-        </div>
+        <a href="/listings?filter=Rooms" class="filter <%= filter === 'Rooms' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-bed"></i></div>
+           <p>Rooms</p>
+        </a>
         <!-- Iconic Cities -->
-        <div class="filter">
-           <div><i class="fa-solid fa-mountain-city"></i></div> 
-           <p>Iconic Cities</p> 
-        </div>
+        <a href="/listings?filter=Iconic+Cities" class="filter <%= filter === 'Iconic Cities' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-mountain-city"></i></div>
+           <p>Iconic Cities</p>
+        </a>
         <!-- Mountain -->
-        <div class="filter">
-           <div><i class="fa-solid fa-mountain"></i></div> 
-           <p>Mountains</p> 
-        </div>
+        <a href="/listings?filter=Mountains" class="filter <%= filter === 'Mountains' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-mountain"></i></div>
+           <p>Mountains</p>
+        </a>
         <!-- Castles -->
-        <div class="filter">
-           <div><i class="fa-brands fa-fort-awesome"></i></div> 
-           <p>Castles</p> 
-        </div>
+        <a href="/listings?filter=Castles" class="filter <%= filter === 'Castles' ? 'active' : '' %>">
+           <div><i class="fa-brands fa-fort-awesome"></i></div>
+           <p>Castles</p>
+        </a>
         <!-- Amazing Pool -->
-        <div class="filter">
-           <div><i class="fa-solid fa-person-swimming"></i></div> 
-           <p>Amazing Pools</p> 
-        </div>
+        <a href="/listings?filter=Amazing+Pools" class="filter <%= filter === 'Amazing Pools' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-person-swimming"></i></div>
+           <p>Amazing Pools</p>
+        </a>
         <!-- Camping -->
-        <div class="filter">
-           <div><i class="fa-solid fa-campground"></i></div> 
-           <p>Camping</p> 
-        </div>
+        <a href="/listings?filter=Camping" class="filter <%= filter === 'Camping' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-campground"></i></div>
+           <p>Camping</p>
+        </a>
         <!-- Farms -->
-        <div class="filter">
-           <div><i class="fa-solid fa-cow"></i></div> 
-           <p>Farms</p> 
-        </div>
-         <!-- Arctic -->
-        <div class="filter">
-           <div><i class="fa-solid fa-snowman"></i></div> 
-           <p>Arctic</p> 
-        </div>
-         <!-- Dome -->
-        <div class="filter">
-           <div><i class="fa-solid fa-landmark-dome"></i></div> 
-           <p>Domes</p> 
-        </div>
-         <!-- Boat -->
-        <div class="filter">
-           <div><i class="fa-solid fa-sailboat"></i></div> 
-           <p>Boats</p> 
-        </div>
+        <a href="/listings?filter=Farms" class="filter <%= filter === 'Farms' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-cow"></i></div>
+           <p>Farms</p>
+        </a>
+        <!-- Arctic -->
+        <a href="/listings?filter=Arctic" class="filter <%= filter === 'Arctic' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-snowman"></i></div>
+           <p>Arctic</p>
+        </a>
+        <!-- Dome -->
+        <a href="/listings?filter=Domes" class="filter <%= filter === 'Domes' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-landmark-dome"></i></div>
+           <p>Domes</p>
+        </a>
+        <!-- Boat -->
+        <a href="/listings?filter=Boats" class="filter <%= filter === 'Boats' ? 'active' : '' %>">
+           <div><i class="fa-solid fa-sailboat"></i></div>
+           <p>Boats</p>
+        </a>
 
         <!-- add toggle switch -->
-         <div class="tax-switch">
+        <div class="tax-switch">
             <div class="form-check-reverse form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            </div>
         </div>
-         </div>
     </div>
-   
+
+    <% if(allListings.length === 0) { %>
+        <div class="no-listings">
+            <div><i class="fa-solid fa-face-sad-tear"></i></div>
+            <h5>No listings found for "<%= filter %>"</h5>
+            <p><a href="/listings">Clear filter</a> to see all listings.</p>
+        </div>
+    <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
         <% for(let listing of allListings){ %>
             <a href="/listings/<%= listing._id%>" class="listing-link">
-    <div class="card col listing-card" >
-  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
-  <div class="card-img-overlay"></div>
-  <div class="card-body">
-    <p class="card-text">
-       <b> <%=listing.title %> </b><br>
-        &#8377 <%= listing.price.toLocaleString("en-IN") %>/night
-        <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
-    </p>
-  </div>
-</div>
-</a>
-<% } %>
+                <div class="card col listing-card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b> <%=listing.title %> </b><br>
+                            &#8377 <%= listing.price.toLocaleString("en-IN") %>/night
+                            <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
     </div>
-     
+    <% } %>
 
     <script>
         let taxSwitch = document.getElementById("switchCheckDefault");
         taxSwitch.addEventListener("click", ()=>{
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for(info of taxInfo){
-            if(info.style.display != "inline"){
-                info.style.display = "inline";
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for(info of taxInfo){
+                if(info.style.display != "inline"){
+                    info.style.display = "inline";
+                }
+                else{
+                    info.style.display = "none";
+                }
             }
-            else{
-                info.style.display = "none";
-            }
-            
-        }
         });
     </script>
-    
-</body>
 
+</body>
