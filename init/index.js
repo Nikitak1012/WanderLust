@@ -1,25 +1,28 @@
+require("dotenv").config({ path: "../.env" });
+
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
 
-
-main().then(()=>{
-    console.log("Connection to DB");
-}).catch(err => console.log(err));
+const dbUrl = process.env.ATLASDB_URL;
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+    await mongoose.connect(dbUrl);
 }
 
- const initDB = async () =>{
+main().then(() => {
+    console.log("Connected to Atlas DB");
+}).catch(err => console.log(err));
 
+const initDB = async () => {
     await Listing.deleteMany({});
-    initData.data = initData.data.map((obj) =>({...obj, owner:'6aa113e67c1b1d307ac1bf7c'}));
+    // NOTE: Replace the owner ID below with your actual user _id from MongoDB Atlas
+    initData.data = initData.data.map((obj) => ({
+        ...obj,
+        owner: "6aa113e67c1b1d307ac1bf7c",
+    }));
     await Listing.insertMany(initData.data);
-    console.log("data was initialized");
+    console.log("✅ Data initialized successfully with categories!");
+};
 
- };
-
- initDB();
+initDB();
