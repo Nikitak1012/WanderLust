@@ -15,7 +15,6 @@
 
 **[🌐 Live Demo](https://wanderlust-funv.onrender.com)**
 
-*(Note: If the live demo URL differs or is hosted on a specific platform like Render/Vercel, update the Live Demo link above).*
 
 <br/>
 
