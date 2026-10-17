@@ -14,7 +14,7 @@
 
 <br/>
 
-**[🌐 Live Demo](https://wanderlust-travel.onrender.com)** &nbsp;|&nbsp; **[📁 GitHub Repository](https://github.com/Nikitak1012/WanderLust)** &nbsp;|&nbsp; **[🐛 Report Bug](https://github.com/Nikitak1012/WanderLust/issues)** &nbsp;|&nbsp; **[💡 Request Feature](https://github.com/Nikitak1012/WanderLust/issues)**
+**[🌐 Live Demo](https://wanderlust-travel.onrender.com)**
 
 *(Note: If the live demo URL differs or is hosted on a specific platform like Render/Vercel, update the Live Demo link above).*
 
@@ -30,7 +30,6 @@
 - [System Architecture](#-system-architecture)
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
-- [Screenshots & UI Tour](#-screenshots--ui-tour)
 - [Database Schema & Data Models](#-database-schema--data-models)
 - [API & Route Specifications](#-api--route-specifications)
 - [Security & Validation Engineering](#-security--validation-engineering)
@@ -135,19 +134,6 @@ flowchart TD
 | **File Handling & Cloud** | `Multer`, `Cloudinary`, `multer-storage-cloudinary` | Multi-part form parsing & CDN media delivery |
 | **UI Styling & Assets** | `Bootstrap 5.3`, `FontAwesome 7`, `Starability CSS` | Clean responsive layout, iconography, and interactive rating slots |
 
----
-
-## 📸 Screenshots & UI Tour
-
-> *Tip: Place high-resolution application screenshots in `docs/screenshots/` or update the markdown paths below.*
-
-| Home Page & Category Filter | Property Details & Review Section |
-| :---: | :---: |
-| ![Home Page](docs/screenshots/home.png)<br/>*Explore listings with category chips & GST switch* | ![Listing Show View](docs/screenshots/show.png)<br/>*Property details, host info & Starability review ratings* |
-
-| New Listing / Upload Form | User Authentication |
-| :---: | :---: |
-| ![Create Listing](docs/screenshots/new.png)<br/>*Cloudinary file upload with Joi schema validation* | ![Sign Up / Login](docs/screenshots/auth.png)<br/>*Passport.js authenticated user onboarding* |
 
 ---
 
