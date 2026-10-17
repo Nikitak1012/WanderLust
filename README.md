@@ -10,7 +10,6 @@
 [![Cloudinary](https://img.shields.io/badge/Cloudinary-Media_CDN-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
 [![Bootstrap 5](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Passport.js](https://img.shields.io/badge/Passport.js-Authentication-34E27A?style=for-the-badge&logo=passport&logoColor=black)](https://www.passportjs.org/)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=for-the-badge)](https://opensource.org/licenses/ISC)
 
 <br/>
 
@@ -362,5 +361,3 @@ Create a `.env` file in the root directory and define the following variables:
 - **GitHub:** [@Nikitak1012](https://github.com/Nikitak1012)
 - **Repository:** [Nikitak1012/WanderLust](https://github.com/Nikitak1012/WanderLust)
 
-### 📄 License
-This project is licensed under the [ISC License](file:///c:/Users/user/OneDrive/Desktop/wbfolder/Airbnb_replica/package.json#L14).
